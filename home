@@ -1,0 +1,202 @@
+
+// ==========================================
+// VIORA
+// HOME JAVASCRIPT
+// ==========================================
+
+
+// ================================
+// MOBILE MENU
+// ================================
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+
+    navLinks.classList.toggle("active");
+
+});
+
+
+// بستن منو بعد از انتخاب گزینه
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("active");
+
+    });
+
+});
+
+
+// ================================
+// SEARCH
+// ================================
+
+const searchBtn = document.getElementById("searchBtn");
+const searchBox = document.getElementById("searchBox");
+const closeSearch = document.getElementById("closeSearch");
+const searchInput = document.getElementById("searchInput");
+
+
+searchBtn.addEventListener("click", () => {
+
+    searchBox.classList.add("active");
+
+    setTimeout(() => {
+
+        searchInput.focus();
+
+    }, 100);
+
+});
+
+
+closeSearch.addEventListener("click", () => {
+
+    searchBox.classList.remove("active");
+
+});
+
+
+searchBox.addEventListener("click", (event) => {
+
+    if (event.target === searchBox) {
+
+        searchBox.classList.remove("active");
+
+    }
+
+});
+
+
+// ================================
+// ACCOUNT
+// ================================
+
+const accountBtn = document.getElementById("accountBtn");
+const accountBox = document.getElementById("accountBox");
+const closeAccount = document.getElementById("closeAccount");
+
+
+accountBtn.addEventListener("click", () => {
+
+    accountBox.classList.add("active");
+
+});
+
+
+closeAccount.addEventListener("click", () => {
+
+    accountBox.classList.remove("active");
+
+});
+
+
+accountBox.addEventListener("click", (event) => {
+
+    if (event.target === accountBox) {
+
+        accountBox.classList.remove("active");
+
+    }
+
+});
+
+
+// ================================
+// HERO BUTTON
+// ================================
+
+const heroShopBtn =
+    document.getElementById("heroShopBtn");
+
+
+heroShopBtn.addEventListener("click", () => {
+
+    document.getElementById("products")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+});
+
+
+// ================================
+// CART
+// ================================
+
+const cartMessage =
+    document.getElementById("cartMessage");
+
+
+const cartButtons =
+    document.querySelectorAll(".add-cart");
+
+
+cartButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        cartMessage.classList.add("show");
+
+
+        setTimeout(() => {
+
+            cartMessage.classList.remove("show");
+
+        }, 2000);
+
+    });
+
+});
+
+
+// ================================
+// FAVORITES
+// ================================
+
+const favoriteButtons =
+    document.querySelectorAll(".favorite");
+
+
+favoriteButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        if (button.textContent.trim() === "♡") {
+
+            button.textContent = "♥";
+
+        } else {
+
+            button.textContent = "♡";
+
+        }
+
+    });
+
+});
+
+
+// ================================
+// ESCAPE KEY
+// ================================
+
+document.addEventListener("keydown", (event) => {
+
+    if (event.key === "Escape") {
+
+        searchBox.classList.remove("active");
+
+        accountBox.classList.remove("active");
+
+        navLinks.classList.remove("active");
+
+    }
+
+});
+```
